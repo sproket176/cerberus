@@ -28,7 +28,7 @@ bot.on('guildMemberRemove', member => {
     if(guild) {
         let channel = guild.channels.get(info_channel);
         if(channel)
-            channel.send(`Żegnamy ${member}.`);
+            channel.send("Żegnamy " + member.displayName + ".");
 }
 });
 
