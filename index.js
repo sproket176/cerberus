@@ -26,12 +26,14 @@ var servers = {};
 });
 
   bot.on('guildMemberAdd', member => {
+      var role = member.guild.roles.find('name', 'not registered');
+    member.addRole(role).catch(console.error);
     let guild = bot.guilds.get(server_id);
     if(guild) {
         let channel = guild.channels.get(info_channel);
         if(channel)
 channel.send(`Nowy wariat na konferencji, ${member}.`);
-member.send(`Siema ${member}. Zajebiście, że wpadłeś. Wpisz swój charakter do chartu. Wypełnij krótki formularz, link do niego masz poniżej. Piona, miłej gry!
+member.send(`Siema ${member}. Zajebiście, że wpadłeś. Wpisz swój charakter do chartu. Wypełnij krótki formularz, link do niego masz poniżej. Wpisz się jako Member/nomad. Gdy awansujesz w przyszłości, zostaniesz zaakceptowany i twój charakter pojawi się na stronie głównej. Piona, miłej gry!
 http://mobshitters.5v.pl/panel/add`);
 }
 });
