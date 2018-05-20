@@ -5,7 +5,7 @@ const token = 'NDI4MjA5NTEzOTc2Mjk5NTIx.DZvxow.yhNgrYpHmy9lb2cc2M2RUEpMSMM';
 const server_id = '401424715954126858';
 const spam_channel = '401428462671364097';
 const info_channel = '407592712963883008';
-const cmd_channel = '428256083690127371';
+const cmd_channel = '447698728770338816';
 
 function play(connection, message) {
     var server = servers[message.guild.id];
@@ -21,8 +21,6 @@ var servers = {};
   bot.on('ready', async () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setActivity('prezydenta', { type: 'LISTENING' });
-    var channel = bot.channels.get(cmd_channel);
-    channel.send('```KOMENDY BOTA:\n/say [tekst] - pisanie na spamowej\n/info [tekst] - pisanie na informacyjnej``````KOMENDY MUZYCZNE:\n/play [youtube url] - można dodać kilka piosenek pod rząd\n/skip - pominięcie utworu i odtwarzanie następnego w kolejce\n/stop - zatrzymanie muzyki i kick bota z kanału```');
 });
 
   bot.on('guildMemberAdd', member => {
@@ -115,6 +113,16 @@ if(cmd === '/play') {
             if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
             }
         }
+    if(cmd === '/cmds') {
+        if (message.channel.id === cmd_channel) {
+            if(message.member.hasPermission("MANAGE_MESSAGES")) {
+                let botmessage = args.join(" ");
+                message.delete().catch();
+                message.channel.send('```KOMENDY BOTA:\n/say [tekst] - pisanie na spamowej\n/info [tekst] - pisanie na informacyjnej``````KOMENDY MUZYCZNE:\n/play [youtube url] - można dodać kilka piosenek pod rząd\n/skip - pominięcie utworu i odtwarzanie następnego w kolejce\n/stop - zatrzymanie muzyki i kick bota z kanału```'); 
+            }
+            return;
+        }
+            }
   });
 
 bot.login(token);
