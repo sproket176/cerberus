@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const bot = new Discord.Client();
-const token = 'NDI4MjA5NTEzOTc2Mjk5NTIx.DZvxow.yhNgrYpHmy9lb2cc2M2RUEpMSMM';
+const mysql = require('mysql');
+const token = 'NDYwNTY4NTE0NjU5NjE0NzMx.DhGpiQ.nZMgWYAbuMrtDlhl_SoqQM6R86A';
 const server_id = '401424715954126858';
 const spam_channel = '401428462671364097';
 const info_channel = '407592712963883008';
@@ -31,8 +32,8 @@ var servers = {};
         let channel = guild.channels.get(info_channel);
         if(channel)
 channel.send(`Nowy wariat na konferencji, ${member}.`);
-member.send(`Siema ${member}. Zajebiście, że wpadłeś. Wpisz swój charakter do chartu. Wypełnij krótki formularz, link do niego masz poniżej. Wpisz się jako Member/nomad. Gdy awansujesz w przyszłości, zostaniesz zaakceptowany i twój charakter pojawi się na stronie głównej. Piona, miłej gry!
-http://mobshitters.5v.pl/panel/add`);
+//member.send(`Siema ${member}. Zajebiście, że wpadłeś. Wpisz swój charakter do chartu. Wypełnij krótki formularz, link do niego masz poniżej. Wpisz się jako Member/nomad. Gdy awansujesz w przyszłości, zostaniesz zaakceptowany i twój charakter pojawi się na stronie głównej. Piona, miłej gry!
+//http://mobshitters.5v.pl/panel/add`);
 }
 });
 bot.on('guildMemberRemove', member => {
