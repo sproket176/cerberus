@@ -1,1 +1,1 @@
-# mobshitters-bot
+# cerberus
